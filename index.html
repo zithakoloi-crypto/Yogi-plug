@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yogi Plug – Fresh Yogurt</title>
+<meta name="description" content="Yogi Plug – 1 kg fresh yogurt for only R40. Welkom, Nyakallong, Virginia and Odendaalsrus. Order on WhatsApp.">
+<style>
+  :root{
+    --navy:#0f2a63; --navy-dark:#0a1d47; --yellow:#ffd60a; --sky:#bfe6fb;
+    --cream:#f7fbff; --ink:#14224a; --white:#fff; --green:#25d366;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Segoe UI",system-ui,-apple-system,Roboto,sans-serif;background:var(--cream);color:var(--ink);line-height:1.6}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1050px;margin:0 auto;padding:0 20px}
+
+  header{position:sticky;top:0;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);z-index:10;border-bottom:3px solid var(--yellow)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{font-size:1.6rem;font-weight:900;color:var(--navy);letter-spacing:-.5px;font-style:italic}
+  .logo span{color:#e0b400}
+  nav a{margin-left:20px;font-weight:700;font-size:.95rem;color:var(--navy)}
+  .btn{display:inline-block;background:var(--navy);color:#fff;padding:14px 28px;border-radius:50px;font-weight:800;border:none;cursor:pointer;font-size:1rem;transition:.2s}
+  .btn:hover{background:var(--navy-dark);transform:translateY(-2px)}
+  .btn.yellow{background:var(--yellow);color:var(--navy)}
+  .btn.yellow:hover{background:#ffe55c}
+  .btn.wa{background:var(--green)}
+  .btn.wa:hover{background:#1ebe5b}
+  .btn.small{padding:9px 18px;font-size:.9rem}
+
+  .hero{padding:60px 0 70px;background:linear-gradient(180deg,var(--sky),#eaf7ff 70%,var(--cream));position:relative;overflow:hidden}
+  .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+  .brand{font-size:5rem;line-height:.95;font-weight:900;font-style:italic;color:#fff;-webkit-text-stroke:3px var(--navy);paint-order:stroke fill;text-shadow:0 6px 0 var(--navy);margin-bottom:10px}
+  .brand .plug{display:block;color:var(--yellow)}
+  .tagline{font-size:1.4rem;font-weight:800;color:var(--navy);margin:16px 0 10px;font-style:italic}
+  .hero p.lead{font-size:1.1rem;margin-bottom:24px;max-width:480px}
+  .cta{display:flex;gap:12px;flex-wrap:wrap}
+  .sticker{display:inline-block;background:var(--navy);color:#fff;padding:8px 18px;border-radius:8px;transform:rotate(-3deg);font-weight:800;margin-bottom:18px;font-style:italic}
+
+  .tubwrap{display:flex;justify-content:center;position:relative}
+  .tub{width:250px;background:#fff;border-radius:18px 18px 40px 40px;box-shadow:0 22px 50px rgba(15,42,99,.3);text-align:center;padding:0 0 28px;transform:rotate(4deg);overflow:hidden}
+  .tub .lid{height:44px;background:#e9eef5;border-bottom:4px solid #d5deea}
+  .tub b{display:block;font-size:2.6rem;color:var(--navy);font-style:italic;margin-top:22px;line-height:1}
+  .tub .p{color:#e0b400;font-weight:900;font-style:italic;font-size:1.8rem}
+  .tub .kg{margin-top:14px;font-weight:800;color:var(--navy)}
+  .tub .price{display:inline-block;margin-top:10px;background:var(--yellow);color:var(--navy);padding:6px 22px;border-radius:30px;font-weight:900;font-size:1.4rem}
+
+  .price-band{background:var(--yellow);padding:34px 0;text-align:center}
+  .price-band .big{font-size:3.4rem;font-weight:900;color:var(--navy);line-height:1.05;font-style:italic}
+  .price-band .big small{font-size:1.2rem;display:block;letter-spacing:2px}
+  .price-band p{font-weight:800;color:var(--navy);margin-top:6px}
+
+  section{padding:64px 0}
+  h2{font-size:2rem;text-align:center;margin-bottom:8px;color:var(--navy)}
+  .sub{text-align:center;color:#51608a;margin-bottom:38px}
+
+  .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px}
+  .card{background:var(--white);border-radius:20px;padding:28px 22px;text-align:center;box-shadow:0 6px 20px rgba(15,42,99,.08);border-bottom:5px solid var(--yellow)}
+  .card .ico{font-size:2.4rem;margin-bottom:10px}
+  .card h3{margin-bottom:6px;color:var(--navy)}
+
+  .gallery{background:#fff}
+  .shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+  .shots img{width:100%;height:260px;object-fit:cover;border-radius:18px;box-shadow:0 6px 20px rgba(15,42,99,.15)}
+  .gallery .hint{text-align:center;color:#51608a;font-size:.9rem;margin-top:14px}
+
+  .order{background:var(--sky)}
+  .order-box{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:start}
+  .panel{background:var(--white);border-radius:20px;padding:28px;box-shadow:0 6px 20px rgba(15,42,99,.1)}
+  .panel h3{margin-bottom:12px;color:var(--navy)}
+  label{display:block;font-weight:700;margin:12px 0 4px;font-size:.92rem}
+  input,select{width:100%;padding:12px 14px;border:2px solid #d9e4f3;border-radius:12px;font:inherit;background:#fff}
+  input:focus,select:focus{outline:none;border-color:var(--navy)}
+  .qty{display:flex;align-items:center;gap:12px}
+  .qty button{width:44px;height:44px;border-radius:50%;border:none;background:var(--navy);color:#fff;font-size:1.3rem;cursor:pointer}
+  .qty span{font-size:1.4rem;font-weight:800;min-width:30px;text-align:center}
+  .total{margin:18px 0;font-size:1.25rem;font-weight:800}
+  .total span{color:var(--navy);background:var(--yellow);padding:2px 12px;border-radius:8px}
+  .note{font-size:.88rem;color:#51608a;margin-top:10px}
+  .areas{list-style:none;margin:6px 0 18px}
+  .areas li{padding:8px 0;font-weight:700;border-bottom:1px dashed #d9e4f3}
+  .areas li::before{content:"✔";color:var(--navy);background:var(--yellow);border-radius:50%;display:inline-block;width:24px;height:24px;text-align:center;line-height:24px;font-size:.8rem;margin-right:10px}
+  .badge{display:inline-block;background:var(--navy);color:#fff;border-radius:30px;padding:2px 12px;font-size:.78rem;font-weight:700;margin-left:6px}
+
+  footer{background:var(--navy);color:#dbe6ff;text-align:center;padding:38px 20px}
+  footer .logo{color:#fff;display:block;margin-bottom:6px;font-size:1.8rem}
+  footer .logo span{color:var(--yellow)}
+  footer .slogan{color:var(--yellow);font-weight:800;font-style:italic}
+
+  .wa-float{position:fixed;right:18px;bottom:18px;background:var(--green);color:#fff;width:58px;height:58px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-size:1.6rem;box-shadow:0 6px 18px rgba(0,0,0,.3);z-index:20}
+
+  @media(max-width:780px){
+    .hero .wrap,.order-box{grid-template-columns:1fr}
+    .brand{font-size:3.6rem}
+    .tubwrap{order:-1}
+    nav a.hide-m{display:none}
+    .price-band .big{font-size:2.5rem}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="logo">Yogi <span>Plug</span></a>
+    <nav>
+      <a href="#why" class="hide-m">Why Yogi</a>
+      <a href="#order" class="hide-m">Areas</a>
+      <a href="#order" class="btn small yellow">Order now</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <span class="sticker">Creamy · Fresh · Delicious ♥</span>
+        <div class="brand">Yogi<span class="plug">Plug</span></div>
+        <div class="tagline">Fresh Yogurt to Keep You Going!</div>
+        <p class="lead">Fresh, delicious and affordable! 😋 Perfect for families, breakfast, lunchboxes or just a tasty treat.</p>
+        <div class="cta">
+          <a href="#order" class="btn yellow">Get yours today</a>
+          <a href="https://wa.me/27726008732" class="btn wa" target="_blank" rel="noopener">Order on WhatsApp</a>
+        </div>
+      </div>
+      <div class="tubwrap">
+        <div class="tub">
+          <div class="lid"></div>
+          <b>Yogi</b>
+          <div class="p">Plug</div>
+          <div class="kg">1kg Tub</div>
+          <div class="price">R40</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="price-band">
+    <div class="wrap">
+      <div class="big"><small>1KG YOGURT · ONLY</small>R40 EACH</div>
+      <p>🔥 R40 each — get yours today!</p>
+    </div>
+  </div>
+
+  <section id="why">
+    <div class="wrap">
+      <h2>Why you'll love Yogi Plug</h2>
+      <p class="sub">Simple, tasty and affordable.</p>
+      <div class="features">
+        <div class="card"><div class="ico">✅</div><h3>High quality</h3><p>Fresh yogurt you can trust.</p></div>
+        <div class="card"><div class="ico">🥛</div><h3>Fresh &amp; creamy</h3><p>Smooth, rich and delicious.</p></div>
+        <div class="card"><div class="ico">😊</div><h3>For the whole family</h3><p>Kids and grown-ups love it.</p></div>
+        <div class="card"><div class="ico">🎒</div><h3>Anytime</h3><p>Great for breakfast, lunchboxes or a snack.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery" id="photos">
+    <div class="wrap">
+      <h2>Meet the 1 kg tub</h2>
+      <p class="sub">Big tub, small price.</p>
+      <div class="shots">
+        <img src="yogurt1.jpg" alt="Yogi Plug 1kg yogurt tubs" onerror="this.style.display='none'">
+        <img src="yogurt2.jpg" alt="Yogi Plug 1kg tub in hand" onerror="this.style.display='none'">
+      </div>
+      <p class="hint">Save your product photos next to this file as yogurt1.jpg and yogurt2.jpg and they will show up here.</p>
+    </div>
+  </section>
+
+  <section class="order" id="order">
+    <div class="wrap">
+      <h2>Order your Yogi Plug</h2>
+      <p class="sub">Fill in the form and we'll open WhatsApp with your order ready to send.</p>
+      <div class="order-box">
+        <div class="panel">
+          <h3>Place an order</h3>
+          <label for="name">Your name</label>
+          <input id="name" placeholder="e.g. Thabo">
+
+          <label for="area">Your area</label>
+          <select id="area">
+            <option>Odendaalsrus</option>
+            <option>Welkom</option>
+            <option>Nyakallong</option>
+            <option>Virginia</option>
+          </select>
+
+          <label for="address">Address / landmark</label>
+          <input id="address" placeholder="Street or nearby landmark">
+
+          <label>How many tubs?</label>
+          <div class="qty">
+            <button type="button" id="minus" aria-label="Fewer">−</button>
+            <span id="qty">1</span>
+            <button type="button" id="plus" aria-label="More">+</button>
+          </div>
+
+          <div class="total">Total: <span id="total">R40</span></div>
+          <button class="btn wa" id="send" type="button" style="width:100%">Send order on WhatsApp</button>
+          <p class="note" id="deliveryNote">We deliver in Odendaalsrus.</p>
+        </div>
+
+        <div class="panel">
+          <h3>📍 Available in</h3>
+          <ul class="areas">
+            <li>Welkom</li>
+            <li>Nyakallong</li>
+            <li>Virginia</li>
+            <li>Odendaalsrus <span class="badge">Delivery</span></li>
+          </ul>
+          <h3>Price</h3>
+          <p><b>1 kg Yogi Plug yogurt – R40 each</b></p>
+          <h3 style="margin-top:18px">Order / WhatsApp</h3>
+          <p><a href="https://wa.me/27726008732" target="_blank" rel="noopener"><b style="font-size:1.4rem">072 600 8732</b></a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span class="logo">Yogi <span>Plug</span></span>
+  <p class="slogan">Your Plug for Fresh Yogurt!</p>
+  <p style="margin-top:8px;font-size:.85rem">© <span id="yr"></span> Yogi Plug. All rights reserved.</p>
+</footer>
+
+<a class="wa-float" href="https://wa.me/27726008732" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">💬</a>
+
+<script>
+  const PRICE = 40, NUMBER = "27726008732";
+  let qty = 1;
+  const $ = id => document.getElementById(id);
+
+  function update(){
+    $("qty").textContent = qty;
+    $("total").textContent = "R" + (qty * PRICE);
+  }
+  $("plus").onclick  = () => { qty++; update(); };
+  $("minus").onclick = () => { if(qty > 1){ qty--; update(); } };
+
+  $("area").onchange = () => {
+    $("deliveryNote").textContent = $("area").value === "Odendaalsrus"
+      ? "We deliver in Odendaalsrus."
+      : "We'll confirm collection or delivery options for your area on WhatsApp.";
+  };
+
+  $("send").onclick = () => {
+    const name = $("name").value.trim() || "(no name)";
+    const msg =
+`Hi Yogi Plug! I'd like to order:
+• ${qty} x 1 kg yogurt = R${qty * PRICE}
+• Name: ${name}
+• Area: ${$("area").value}
+• Address: ${$("address").value.trim() || "-"}`;
+    window.open("https://wa.me/" + NUMBER + "?text=" + encodeURIComponent(msg), "_blank");
+  };
+
+  $("yr").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
